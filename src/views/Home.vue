@@ -42,11 +42,12 @@ export default {
     <input type="text" v-model="search">
     <p>search term - {{ search }}</p>
     <div v-for="name in matchingNames" :key="name">{{ name }}</div>
+    <button @click="handleClick">Stop Watching</button>
   </div>
 </template>
 
 <script>
-import { computed, ref } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 
 export default {
   name: 'Home',
@@ -54,16 +55,30 @@ export default {
     const search = ref('')
     const names = ref(['Mario', 'Luigi', 'Yoshi', 'Koopa', 'Peach', 'Bowser', 'Toad'])
 
+    const stopWatch = watch(search, () => {
+      console.log('watch function run')
+    })
+
+    const stopWatchEffect = watchEffect(() => {
+      console.log('watch effect run', search.value)
+    })
+
     const matchingNames = computed(() => {
       return names.value.filter((name) => {
         return name.toLowerCase().includes(search.value.toLowerCase())
       })
     })
 
+    const handleClick = () => {
+      stopWatch()
+      stopWatchEffect()
+    }
+
     return {
-       names,
-       search,
-       matchingNames 
+      names,
+      search,
+      matchingNames,
+      handleClick
     }
   }
 }
