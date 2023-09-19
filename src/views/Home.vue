@@ -1,3 +1,5 @@
+<!-- LESSON ONE -->
+
 <!-- <template>
   <div class="home">
     <h1>Home</h1>
@@ -35,8 +37,8 @@ export default {
 
 </script> -->
 
-
-<template>
+<!-- LESSSON TWO -->
+<!-- <template>
   <div class="home">
     <h1>Home</h1>
     <input type="text" v-model="search">
@@ -82,4 +84,38 @@ export default {
     }
   }
 }
+</script> -->
+
+<!-- LESSON THREE -->
+
+<template>
+  <div class="home">
+    <h1>Home</h1>
+    <PostList :posts="posts" />
+    
+  </div>
+</template>
+
+<script>
+import { ref } from 'vue'
+import PostList from '@/components/PostList.vue'
+
+export default {
+  name: 'Home',
+  components: {
+    PostList
+  },
+  setup() {
+    const posts = ref([
+      { title: 'welcome to the blog', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 1},
+      { title: 'vue 3 composition api', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 2},
+      { title: 'the basics of javascript', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 3},
+    ])
+
+    return {
+      posts
+    }
+  }
+}
+
 </script>
