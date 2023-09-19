@@ -90,8 +90,11 @@ export default {
 
 <template>
   <div class="home">
+
     <h1>Home</h1>
-    <PostList :posts="posts" />
+    <PostList v-if="showPosts" :posts="posts" />
+    <button @click="showPosts = !showPosts">toggle posts</button>
+    <button @click="posts.pop()">remove post</button>
     
   </div>
 </template>
@@ -112,8 +115,11 @@ export default {
       { title: 'the basics of javascript', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 3},
     ])
 
+    const showPosts = ref(true)
+
     return {
-      posts
+      posts,
+      showPosts 
     }
   }
 }
