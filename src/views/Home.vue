@@ -110,9 +110,9 @@ export default {
   },
   setup() {
     const posts = ref([
-      { title: 'welcome to the blog', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 1},
-      { title: 'vue 3 composition api', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 2},
-      { title: 'the basics of javascript', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 3},
+      { title: 'welcome to the blog', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 1, tags: ['general', 'welcome']},
+      { title: 'vue 3 composition api', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 2, tags: ['vue', 'composition api']},
+      { title: 'the basics of javascript', body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.', id: 3, tags: ['javascript', 'es2020']},
     ])
 
     const showPosts = ref(true)
